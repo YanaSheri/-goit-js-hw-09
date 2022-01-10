@@ -9,15 +9,11 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    //   console.log(selectedDates[0]);
-    //   console.log(selectedDates);
-    //   console.log(new Date());
     if (selectedDates[0] < new Date()) {
         window.alert("Please choose a date in the future");
         btn.setAttribute('disabled', 'disabled');
     } else {
         btn.removeAttribute('disabled');
-
     }
     btn.addEventListener('click', () => {
         let result = selectedDates[0] - new Date();
@@ -25,16 +21,13 @@ const options = {
             result -= 1000;
             if (result >= 0) {
                 fn(convertMs(result));
-            }
-            
+            }  
         }, 1000);
     })
   },
 };
 
 flatpickr("#datetime-picker", options);
-
-
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
